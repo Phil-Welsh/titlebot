@@ -14,7 +14,7 @@ const index = (req, res) => {
 }
 
 const create = (req, res) => {
-    db.Expense.create(req.body, (err, savedTitle) => {
+    db.Title.create(req.body, (err, savedTitle) => {
         if (err) console.log('Error in titles#create:', err)
 
         res.status(201).json({ title: savedTitle })
