@@ -8,23 +8,28 @@ function Search() {
     const [title, setTitle] = useState({});
     const [url, setUrl] = useState("");
 
-    function handleSubmit(event) {
-
-        event.preventDefault();
-
+    function fetchTitle() {
         return fetch(url)
             .then((response) => response.text())
             .then((html) => {
                 const doc = new DOMParser().parseFromString(html, "text/html");
                 const title = doc.querySelectorAll('title')[0];
-                return title.innerText;
+                console.log(title.innerText);
             });
+    }
 
-        TitleModel.create({ favicon, title }).then(
-            (data) => {
-                window.location.reload();
-            }
-        );
+
+    function handleSubmit(event) {
+
+        event.preventDefault();
+
+        fetchTitle()
+
+        // TitleModel.create({ favicon, title }).then(
+        //     (data) => {
+        //         window.location.reload();
+        //     }
+        // );
     }
 
     return (
