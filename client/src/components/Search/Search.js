@@ -4,32 +4,17 @@ import TitleModel from "../../models/title";
 import './Search.css'
 
 function Search() {
-    const [favicon, setFavicon] = useState({});
-    const [title, setTitle] = useState({});
     const [url, setUrl] = useState("");
-
-    function fetchTitle() {
-        return fetch(url)
-            .then((response) => response.text())
-            .then((html) => {
-                const doc = new DOMParser().parseFromString(html, "text/html");
-                const title = doc.querySelectorAll('title')[0];
-                console.log(title.innerText);
-            });
-    }
-
 
     function handleSubmit(event) {
 
         event.preventDefault();
 
-        fetchTitle()
-
-        // TitleModel.create({ favicon, title }).then(
-        //     (data) => {
-        //         window.location.reload();
-        //     }
-        // );
+        TitleModel.create({ url }).then(
+            (data) => {
+                window.location.reload();
+            }
+        );
     }
 
     return (
