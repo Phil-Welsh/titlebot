@@ -33,7 +33,6 @@ function List() {
         <div className="list-container">
             {titles.length ? (
                 <div>
-                    <h3>Searched URLs</h3>
                     {generateTitles(titles)}
                 </div>
             ) :

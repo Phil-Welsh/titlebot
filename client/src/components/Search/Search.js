@@ -29,7 +29,7 @@ function Search() {
                     />
                 <input type='submit' value='Save' id="submit-button" />
             </form>
-            <small>Please add 'https://' to the beginning of your URL 😁</small>
+            <small>Please add 'https://www' to the beginning of your URL 😁</small>
         </div>
     );
 }
