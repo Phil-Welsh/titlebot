@@ -18,19 +18,18 @@ function Search() {
     }
 
     return (
-        <div className="add-expense-card">
+        <div className="search-input">
             <form onSubmit={handleSubmit}>
-                <div className='form-input'>
                     <input
                         type='text'
                         name='url'
                         onChange={(e) => setUrl(e.target.value)}
                         value={url}
-                        placeholder='www.cnn.com'
+                        placeholder='https://www.cnn.com'
                     />
-                </div>
                 <input type='submit' value='Save' id="submit-button" />
             </form>
+            <small>Please add 'https://' to the beginning of your URL 😁</small>
         </div>
     );
 }
