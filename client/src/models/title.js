@@ -1,5 +1,5 @@
-const url = `http://localhost:4000/api/v1/titles`
-// const url = `https://titlebot-welsh.herokuapp.com/api/v1/titles`
+// const url = `http://localhost:4000/api/v1/titles`
+const url = `https://titlebot-welsh.herokuapp.com/api/v1/titles`
 
 class TitleModel {
     static all = () => {
