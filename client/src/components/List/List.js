@@ -30,7 +30,7 @@ function List() {
     }
 
     return (
-        <div>
+        <div className="list-container">
             {titles.length ? (
                 <div>
                     <h3>Searched URLs</h3>
