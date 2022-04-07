@@ -1,4 +1,10 @@
 const db = require('../models');
+const fetch = require('node-fetch')
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+
+let title = ""
+let url = ""
 
 const index = (req, res) => {
 
@@ -14,14 +20,28 @@ const index = (req, res) => {
 }
 
 const create = (req, res) => {
-    db.Title.create(req.body, (err, savedTitle) => {
-        if (err) console.log('Error in titles#create:', err)
+    fetch(req.body.url)
+        .then((response) => response.text())
+        .then((html) => {
+            const dom = new JSDOM(html);
+            title = dom.window.document.querySelector("title").textContent
+            url = req.body.url
+        }).then(() => {
 
-        res.status(201).json({ title: savedTitle })
-    })
+            db.Title.create({title, url}, (err, savedTitle) => {
+
+            if (err) console.log('Error in titles#create:', err)
+
+            res.status(201).json({ title: savedTitle })
+                }
+            )
+        }
+    )
 }
+
+
 
 module.exports = {
     index,
     create
-};
+}
