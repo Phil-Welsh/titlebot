@@ -11,7 +11,7 @@ function List() {
         function () {
             fetchTitles()
         },
-        []
+        [titles]
     );
 
     function fetchTitles() {
