@@ -10,11 +10,7 @@ function Search() {
 
         event.preventDefault();
 
-        TitleModel.create({ url }).then(
-            (data) => {
-                window.location.reload();
-            }
-        );
+        TitleModel.create({ url })
     }
 
     return (
